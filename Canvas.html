@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Canvas</title>
+
+</head>
+
+<body>
+    <canvas id="canvas" height="1000" width="2000"></canvas>
+
+    <script>
+
+        //Find the canvas element in this document
+        var canvas = document.getElementById("canvas");
+        //A context object will be used to draw on the canvas
+        var context = canvas.getContext("2d");
+
+        //Draw a rectangle, filled with the default color (which is black)
+        //The arguments are (top left corner x, top left corner y, width, height)
+        context.fillStyle = "#0000FF";
+        context.fillRect(20, 20, 100, 100);
+
+        //stroke functions draw lines.
+        context.strokeStyle = "red";
+        context.strokeRect(140, 20, 100, 100);
+
+        //draw a couple of rextangles
+        context.strokeRect(270, 20, 50, 100);
+        context.strokeStyle = "purple";
+        context.strokeRect(260, 40, 110, 50);
+
+        //Draw a red rectangle with an purple line border
+        //Set the stroke style and fill style, then
+        //call fillRect and strokeRet with the same coordinates.
+        context.strokeStyle = "purple";
+        context.fillStyle = "gold";
+        context.fillRect(380, 20, 100, 100);
+        context.strokeRect(380, 20, 100, 100);
+
+        //Use moveTo to define the start point of a line
+        context.moveTo(10, 10);
+        //use lineTo to define the end point of the line
+        context.lineTo(300, 300);
+        //use stroke to actually draw the line
+        context.stroke();
+
+        // Can draw many line segments
+        // start with a moveTo call
+        // call lineTo to define the segments
+        // call stroke to actually draw
+
+        context.moveTo(200, 300);
+        context.lineTo(200, 100);
+        context.lineTo(60, 100);
+        context.lineTo(200, 300);
+        context.stroke();
+
+        //Call beginPath to start the circle
+        context.beginPath();
+        // arc defines the circle or part of circle
+        // x, y, radius, start angle, end angle
+        context.arc(100, 200, 50, 0, 2 * Math.PI);
+        // stroke actually draws
+        context.stroke();
+
+        context.beginPath();
+        context.arc(200, 300, 50, 0, Math.PI);  // Half a circle
+        context.stroke();
+
+        context.beginPath();
+        context.arc(300, 200, 50, 0, 2 * Math.PI);  //Whole circle
+        context.stroke();
+
+        //Set fill color to blue, draw some text
+        context.fillStyle = "#0000FF";
+        context.fillText("Blue fill", 10, 10);
+
+        //Set stroke to gree, draw more text
+        context.strokeStyle = "#00FF00";
+        context.strokeText("Green stroke", 40, 40);
+
+        // Change degfault text size AND font
+
+        context.strokeStyle = '#FF00FF';
+        context.font = "30px Ariel";
+        context.strokeText("Large purple stroke", 80, 80);
+
+        context.font = "50px Courier";
+        context.fillStyle = "#FFFF00";
+        context.fillText("Large yellow courier fill", 120, 120);
+
+        //Outlined text - fill and stroke
+        context.fillStyle = "#00FFFF";
+        context.strokeStyle = "#FF0000";
+        context.fillText("Outlined text", 400, 400);
+        context.strokeText("Outlined text", 400, 400);
+    </script>     
+</body>
+</html>

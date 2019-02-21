@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='eng'>
+
+<body>
+
+<canvas id="canvas" height="3000" width="3000"></canvas>
+
+<img id="cat" src="small-cat.jpg">
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var image = document.getElementById("cat");
+
+    var context = canvas.getContext("2d");
+
+    context.drawImage(image, 20, 100);
+    context.drawImage(image, 300, 100);
+    context.drawImage(image, 150, 300);
+
+</script>
+
+</body>
+</html>
